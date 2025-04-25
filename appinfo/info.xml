@@ -20,4 +20,9 @@
         <php min-version="8.0" max-version="8.3" />
         <nextcloud min-version="29" max-version="32"/>
     </dependencies>
+    <repair-steps>
+        <install>
+            <step>OCA\ThemingDomain\Migration\InstallConfig</step>
+        </install>
+    </repair-steps>
 </info>
