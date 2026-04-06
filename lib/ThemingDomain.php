@@ -28,8 +28,6 @@ namespace OCA\ThemingDomain;
 use OCA\ThemingDomain\AppInfo\Application;
 use OCP\IConfig;
 use OCP\IRequest;
-use ScssPhp\ScssPhp\Compiler;
-use ScssPhp\ScssPhp\Exception\SassException;
 
 class ThemingDomain
 {
@@ -75,7 +73,7 @@ class ThemingDomain
      */
     public function getCss(): string
     {
-        $css = $variables = $scss = '';
+        $content = $variables = $css = '';
 
         if (isset($this->data['variables']) && is_array($this->data['variables'])) {
             foreach ($this->data['variables'] as $key => $value) {
@@ -86,26 +84,21 @@ class ThemingDomain
             }
         }
 
-        if (isset($this->data['scss']) && is_string($this->data['scss'])) {
-            $file = dirname(__DIR__) . '/scss/' . ltrim($this->data['scss'], '/');
+        if (isset($this->data['css']) && is_string($this->data['css'])) {
+            $file = dirname(__DIR__) . '/css/' . ltrim($this->data['css'], '/');
             if (is_file($file)) {
-                try {
-                    $compiler = new Compiler();
-                    $compiled = $compiler->compileFile($file);
-                    $scss .= $compiled->getCss();
-                } catch (SassException) {
-                }
+                $css = file_get_contents($file);
             }
         }
 
         if ($variables) {
-            $css .= ":root {\n$variables}\n";
+            $content .= ":root {\n$variables}\n";
         }
 
-        if ($scss) {
-            $css .= $css ? "\n$scss" : $scss;
+        if ($css) {
+            $content .= $content ? "\n$css" : $css;
         }
 
-        return $css;
+        return $content;
     }
 }

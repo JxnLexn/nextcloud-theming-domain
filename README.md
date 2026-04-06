@@ -3,6 +3,12 @@ Customizes the appearance of **Nextcloud** according to the trusted domain from 
 
 _Note: This application is intended for use by a system administrator as it has no user interface._
 
+### Important Update for Nextcloud 33+
+
+Nextcloud 33 removes the ScssPhp package. I don't plan to include it as it's very easy to set up a "watcher" and automatically compile the SCSS, or just write plain css...
+
+The `scss` variable in the configuration was replaced with `css` and a new folder with this name was added. The old SCSS folder will remain in the same place.
+
 ## Installation
 
 ### Automatic installation (recommended)
@@ -32,7 +38,7 @@ After installing the application, a new configuration file called `theming.domai
 ### Configuration keys:
 `version (integer|string)` = CSS Version (Cache Buster)  
 `variables (array)` = Theme variables. Can be used to override the **Nextcloud** Theme Variables (`:root {...}`).  
-`scss (string)` = Path to a custom scss file relative to the `scss` folder inside the APP main folder (`theming_domain`).
+`css (string)` = Path to a custom css file relative to the `css` folder inside the APP main folder (`theming_domain`).
 
 _Note: None of these keys are mandatory, you can use them or not._
 
@@ -50,7 +56,7 @@ $CONFIG = array(
             'variables' => array( // Variables to be overrided
                 '--image-background-default' => "url('/apps/theming/img/background/tommy-chau-already.jpg')"
             ),
-            'scss' => '/default/style.scss' // Custom SCSS file
+            'css' => '/default/style.css' // Custom CSS file
         ),
         'cloud.domain2.tld' => array(
             'version' => 355,

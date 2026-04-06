@@ -1,2 +1,4 @@
 /scss/*
 !/scss/.gitkeep
+/css/*
+!/css/.gitkeep
