@@ -42,7 +42,7 @@ class ThemingDomain
      */
     public function __construct(
         private IRequest $request,
-        private IConfig  $config,
+        private IConfig $config,
     )
     {
         $host = $this->request->getServerHost();
@@ -61,7 +61,7 @@ class ThemingDomain
      *
      * @return array
      */
-    public function getData()
+    public function getData(): array
     {
         return $this->data;
     }
@@ -87,7 +87,10 @@ class ThemingDomain
         if (isset($this->data['css']) && is_string($this->data['css'])) {
             $file = dirname(__DIR__) . '/css/' . ltrim($this->data['css'], '/');
             if (is_file($file)) {
-                $css = file_get_contents($file);
+                $content = file_get_contents($file);
+                if (is_string($content)) {
+                    $css = $content;
+                }
             }
         }
 

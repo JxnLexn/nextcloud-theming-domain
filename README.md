@@ -3,6 +3,8 @@ Customizes the appearance of **Nextcloud** according to the trusted domain from 
 
 _Note: This application is intended for use by a system administrator as it has no user interface._
 
+Supports **Nextcloud 31-33** and follows the PHP versions supported by those server releases, including **PHP 8.4**.
+
 ### Important Update for Nextcloud 33+
 
 Nextcloud 33 removes the ScssPhp package. I don't plan to include it as it's very easy to set up a "watcher" and automatically compile the SCSS, or just write plain css...

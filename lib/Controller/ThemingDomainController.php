@@ -29,43 +29,34 @@ use OCA\ThemingDomain\ThemingDomain;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\DataDisplayResponse;
-use OCP\AppFramework\Http\NotFoundResponse;
-use OCP\Files\NotFoundException;
 use OCP\IRequest;
 
 class ThemingDomainController extends Controller
 {
-    private $themingDomain;
-
     public function __construct(
-        $appName,
+        string $appName,
         IRequest $request,
-        ThemingDomain $themingDomain
+        private ThemingDomain $themingDomain,
     )
     {
         parent::__construct($appName, $request);
-
-        $this->themingDomain = $themingDomain;
     }
 
     /**
      * @NoCSRFRequired
      * @PublicPage
      */
-    public function getStylesheet(): NotFoundResponse|DataDisplayResponse
+    public function getStylesheet(): DataDisplayResponse
     {
-        try {
-            $response = new DataDisplayResponse(
-                $this->themingDomain->getCss(),
-                Http::STATUS_OK,
-                [
-                    'Content-Type' => 'text/css'
-                ]
-            );
-            $response->cacheFor(86400);
-            return $response;
-        } catch (NotFoundException) {
-            return new NotFoundResponse();
-        }
+        $response = new DataDisplayResponse(
+            $this->themingDomain->getCss(),
+            Http::STATUS_OK,
+            [
+                'Content-Type' => 'text/css',
+            ]
+        );
+        $response->cacheFor(86400);
+
+        return $response;
     }
 }

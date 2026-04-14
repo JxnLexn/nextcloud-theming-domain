@@ -42,7 +42,7 @@ class InstallConfig implements IRepairStep
     /**
      * Returns the step's name
      */
-    public function getName()
+    public function getName(): string
     {
         return 'Create the Domain Theming APP config file.';
     }
@@ -50,12 +50,13 @@ class InstallConfig implements IRepairStep
     /**
      * @param IOutput $output
      */
-    public function run(IOutput $output)
+    public function run(IOutput $output): void
     {
         $host = $this->request->getServerHost();
         $conf = \OC::$configDir . '/theming.domain.config.php';
 
         if ($host && !is_file($conf)) {
+            $data = [];
             $data[] = "<?php\n";
             $data[] = "# Domain Theming APP Config file (theming.domain.config.php).\n";
             $data[] = '$CONFIG = array(';
