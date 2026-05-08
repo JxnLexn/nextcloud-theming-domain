@@ -25,6 +25,7 @@ declare(strict_types=1);
 
 namespace OCA\ThemingDomain\Migration;
 
+use OCA\ThemingDomain\AppInfo\Application;
 use OCP\IRequest;
 use OCP\Migration\IOutput;
 use OCP\Migration\IRepairStep;
@@ -60,14 +61,14 @@ class InstallConfig implements IRepairStep
             $data[] = "<?php\n";
             $data[] = "# Domain Theming APP Config file (theming.domain.config.php).\n";
             $data[] = '$CONFIG = array(';
-            $data[] = '    \'theming_domain\' => array(';
+            $data[] = '    \'' . Application::CONFIG_KEY . '\' => array(';
             $data[] = "        '$host' => array()";
             $data[] = '    )';
             $data[] = ');';
 
             file_put_contents($conf, implode("\n", $data));
 
-            $this->logger->info('Domain Theming APP Config file created.', ['app' => 'theming_domain']);
+            $this->logger->info('Domain Theming APP Config file created.', ['app' => Application::APP_ID]);
         }
     }
 }

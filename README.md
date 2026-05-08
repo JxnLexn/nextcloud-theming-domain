@@ -19,18 +19,18 @@ Just install it from your **Nextcloud** application catalogue.
 
 ### Manual installation
 
-Clone this repository into your **Nextcloud** apps directory:
+Clone this repository into your **Nextcloud** apps directory using the local app id as the folder name:
 
 ```bash
 cd /var/www/nextcloud/site/apps/
-git clone https://github.com/mediabox-cl/nextcloud-theming-domain theming_domain
+git clone https://github.com/mediabox-cl/nextcloud-theming-domain theming_domain_custom
 ```
 Install it as usual from admin app list or CLI with:
 
 ```bash
 cd ..
-sudo -u www-data php occ app:install theming_domain
-sudo -u www-data php occ app:enable theming_domain
+sudo -u www-data php occ app:install theming_domain_custom
+sudo -u www-data php occ app:enable theming_domain_custom
 ```
 
 # Configuration
@@ -40,9 +40,11 @@ After installing the application, a new configuration file called `theming.domai
 ### Configuration keys:
 `version (integer|string)` = CSS Version (Cache Buster)  
 `variables (array)` = Theme variables. Can be used to override the **Nextcloud** Theme Variables (`:root {...}`).  
-`css (string)` = Path to a custom css file relative to the `css` folder inside the APP main folder (`theming_domain`).
+`css (string)` = Path to a custom css file relative to the `css` folder inside the APP main folder (`theming_domain_custom`).
 
 _Note: None of these keys are mandatory, you can use them or not._
+
+_Note: The local app id is `theming_domain_custom`, but the configuration key intentionally remains `theming_domain` so existing installations can reuse their current `theming.domain.config.php` unchanged._
 
 ### Configuration example:
 

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
-    <id>theming_domain</id>
+    <id>theming_domain_custom</id>
     <version>33.0.3</version>
-    <name>Domain Theming</name>
+    <name>Domain Theming Custom</name>
     <summary>Customizes the appearance of Nextcloud according to the trusted domain from which it is being accessed.</summary>
     <description lang="en"><![CDATA[Customizes the appearance of Nextcloud according to the trusted domain from which it is being accessed.]]></description>
     <licence>AGPL-3.0-or-later</licence>

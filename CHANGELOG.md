@@ -1,6 +1,7 @@
 ## 33.0.3
 
-- Bump the app release version for Nextcloud 33.0.3 compatibility while keeping the supported server range at Nextcloud 31-33.
+- Change the app id to `theming_domain_custom` so local installations are treated as a custom app instead of the App Store release `theming_domain`.
+- Publish a fresh release for Nextcloud 33.0.3 without the PHP 8.3 upper bound from the previous App Store tarball, allowing installations on PHP 8.4.
 - Replace legacy controller access annotations with Nextcloud AppFramework PHP attributes for the public stylesheet endpoint.
 
 ## 33.0.2

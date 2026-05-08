@@ -46,7 +46,7 @@ class ThemingDomain
     )
     {
         $host = $this->request->getServerHost();
-        $domains = $this->config->getSystemValue(Application::APP_ID, []);
+        $domains = $this->config->getSystemValue(Application::CONFIG_KEY, []);
 
         if (isset($domains[$host]) && is_array($domains[$host])) {
             $this->data = $domains[$host];

@@ -35,7 +35,8 @@ use OCP\AppFramework\Http\Events\BeforeTemplateRenderedEvent;
 
 class Application extends App implements IBootstrap
 {
-    public const APP_ID = 'theming_domain';
+    public const APP_ID = 'theming_domain_custom';
+    public const CONFIG_KEY = 'theming_domain';
 
     /**
      * @inheritDoc
