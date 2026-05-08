@@ -27,6 +27,8 @@ namespace OCA\ThemingDomain\Controller;
 
 use OCA\ThemingDomain\ThemingDomain;
 use OCP\AppFramework\Controller;
+use OCP\AppFramework\Http\Attribute\NoCSRFRequired;
+use OCP\AppFramework\Http\Attribute\PublicPage;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\DataDisplayResponse;
 use OCP\IRequest;
@@ -42,10 +44,8 @@ class ThemingDomainController extends Controller
         parent::__construct($appName, $request);
     }
 
-    /**
-     * @NoCSRFRequired
-     * @PublicPage
-     */
+    #[NoCSRFRequired]
+    #[PublicPage]
     public function getStylesheet(): DataDisplayResponse
     {
         $response = new DataDisplayResponse(

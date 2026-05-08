@@ -1,3 +1,8 @@
+## 33.0.3
+
+- Bump the app release version for Nextcloud 33.0.3 compatibility while keeping the supported server range at Nextcloud 31-33.
+- Replace legacy controller access annotations with Nextcloud AppFramework PHP attributes for the public stylesheet endpoint.
+
 ## 33.0.2
 
 - Publish a fresh release without an explicit PHP upper bound so Nextcloud 32.0.9 installations running PHP 8.4 can install and enable the app.
