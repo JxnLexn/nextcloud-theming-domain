@@ -25,6 +25,9 @@ Clone this repository into your **Nextcloud** apps directory using the local app
 cd /var/www/nextcloud/site/apps/
 git clone https://github.com/mediabox-cl/nextcloud-theming-domain theming_domain_custom
 ```
+
+Keep the `.git` directory in the installed app folder. Nextcloud's update notification app ignores custom apps that are deployed as Git checkouts; if the app is copied from a tarball or ZIP without `.git`, the updater will still look for a matching App Store release and report `Domain Theming Custom` as missing a compatible version.
+
 Install it as usual from admin app list or CLI with:
 
 ```bash
@@ -32,6 +35,8 @@ cd ..
 sudo -u www-data php occ app:install theming_domain_custom
 sudo -u www-data php occ app:enable theming_domain_custom
 ```
+
+If you already copied the app without Git metadata, replace that copy with a clone or create Git metadata in the installed app directory before running the Nextcloud update check again.
 
 # Configuration
 

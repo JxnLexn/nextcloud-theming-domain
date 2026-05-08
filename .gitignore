@@ -2,3 +2,4 @@
 !/scss/.gitkeep
 /css/*
 !/css/.gitkeep
+/dist/

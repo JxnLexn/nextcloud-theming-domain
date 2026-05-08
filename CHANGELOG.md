@@ -1,6 +1,7 @@
 ## 33.0.3
 
 - Change the app id to `theming_domain_custom` so local installations are treated as a custom app instead of the App Store release `theming_domain`.
+- Document that the custom app must be installed as a Git checkout so Nextcloud's update notification app skips the App Store compatibility lookup.
 - Publish a fresh release for Nextcloud 33.0.3 without the PHP 8.3 upper bound from the previous App Store tarball, allowing installations on PHP 8.4.
 - Replace legacy controller access annotations with Nextcloud AppFramework PHP attributes for the public stylesheet endpoint.
 
